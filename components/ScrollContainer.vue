@@ -1,14 +1,14 @@
 <template>
   <div class="w-full">
-   <div class=" w-full h-full max-w-[884px] max-h-[133px]">
+   <div class=" w-full h-full max-w-[884px] max-h-[133px] pr-[22px]">
     <BrowserHeader />
 
    </div>
 
-    <div class=" w-full max-h-[477.07px] overflow-y-auto h-full   max-w-[920px]  space-y-10">
-       <div class="w-full bg-[#050608] max-w-[884px] space-y-10">
+    <div class=" w-full max-h-[477.07px] overflow-y-auto h-full pr-[12px]  max-w-[920px]  space-y-10">
+       <div class="w-full bg-[#050608] max-w-[884px] space-y-10 ">
          <div class=" w-full flex flex-col items-center space-y-8 py-10 px-14" id="first">
-            <div class=" w-full flex items-start justify-between">
+            <div class=" w-full flex items-start justify-between flex-wrap  md:max-w-[165px] m-auto lg:max-w-full sm:max-w-full max-w-[165px]">
                 <div class=" w-full h-full  max-w-[165px] max-h-[202px]">
                     <img src="/images/box.png" class=" w-full h-full" alt="">
                 </div>
@@ -21,9 +21,9 @@
             </div>
             <div class=" w-full flex items-center space-x-5 bg-black border border-[#FC9D0F] rounded-lg py-2 px-8 max-w-[644px]" style="box-shadow: 0px 8px 8px 8px rgba(0, 0, 0, 0.25);">
               <div>
-                <img src="/images/key.png" alt="">
+                <img src="/images/key.png" class="w-[50px] h-[50px] lg:w-[70px] lg:h-[70px]" alt="">
               </div>
-              <span class=" text-2xl font-black font-montserrat italic text-white">Unlock <span class=" text-[#FC9D0F]">your</span> shopping freedom</span>
+              <span class=" text-lg md:text-2xl font-black font-montserrat italic text-white">Unlock <span class=" text-[#FC9D0F]">your</span> shopping freedom</span>
             </div>
          </div>
           <div class=" w-full flex flex-col items-center space-y-2 py-10 px-14" id="second">
@@ -34,9 +34,9 @@
             </div>
             <div class=" w-full flex items-center space-x-5 bg-black border border-[#FC9D0F] rounded-lg py-2 px-8 max-w-[644px]" style="box-shadow: 0px 8px 8px 8px rgba(0, 0, 0, 0.25);">
               <div>
-                <img src="/images/bgc.png" class=" w-[80px] h-[80px]" alt="">
+                <img src="/images/bgc.png" class=" w-[50px] h-[50px] lg:w-[80px] lg:h-[80px]" alt="">
               </div>
-              <span class=" text-2xl font-black font-montserrat italic text-white">Rewarding <span class=" text-[#FC9D0F]">every</span>purchase</span>
+              <span class=" text-lg md:text-2xl font-black font-montserrat italic text-white">Rewarding <span class=" text-[#FC9D0F]">every</span>purchase</span>
             </div>
          </div>
          <div class=" w-full flex flex-col items-center space-y-2 py-10 px-14" id="third">
@@ -47,9 +47,9 @@
             </div>
             <div class=" w-full flex items-center space-x-5 bg-black border border-[#FC9D0F] rounded-lg py-2 px-8 max-w-[644px]" style="box-shadow: 0px 8px 8px 8px rgba(0, 0, 0, 0.25);">
               <div>
-                <img src="/images/book.png" class=" w-[80px] h-[80px]" alt="">
+                <img src="/images/book.png" class="w-[50px] h-[50px] lg:w-[80px] lg:h-[80px]" alt="">
               </div>
-              <span class=" text-2xl font-black font-montserrat italic text-white">Shop <span class=" text-[#FC9D0F]">smarter</span>, not harder</span>
+              <span class=" text-lg md:text-2xl font-black font-montserrat italic text-white">Shop <span class=" text-[#FC9D0F]">smarter</span>, not harder</span>
             </div>
          </div>
        </div>
