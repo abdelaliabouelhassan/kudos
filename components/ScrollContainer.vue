@@ -5,7 +5,7 @@
 
    </div>
 
-    <div class=" w-full max-h-[29.817rem] overflow-y-auto h-full md:pr-[1.78rem]  rounded-br-lg overflow-hidden  max-w-[57.5rem]  space-y-10">
+    <div id="scrollContainer" class=" w-full max-h-[29.817rem] overflow-y-auto h-full md:pr-[1.78rem]  rounded-br-lg overflow-hidden  max-w-[57.5rem]  space-y-10">
        <div class="w-full bg-[#050608] max-w-[55.25rem] space-y-10 rounded-br-lg overflow-hidden">
          <div class=" w-full flex flex-col items-center space-y-8 py-10 px-14  rounded-br-lg overflow-hidden" id="first">
             <div class=" w-full flex items-start justify-between flex-wrap  md:max-w-[10.313rem] m-auto lg:max-w-full sm:max-w-full max-w-[10.313rem]">
@@ -83,8 +83,15 @@ export default {
     },
     methods:{
       ScrollTo(id){
-        document.getElementById(id).scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
-       
+      //  document.getElementById(id).scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+       const scrollContainer = document.getElementById("scrollContainer");
+       const target = document.getElementById(id);
+       //stopPropagation 
+       scrollContainer.scrollTo({
+          top: target.offsetTop - scrollContainer.offsetTop,
+          behavior: 'smooth'
+        });
+
         
       }
     },
