@@ -1,11 +1,11 @@
 <template>
   <div class="w-full rounded-bl-lg overflow-hidden">
-   <div class=" w-full h-full max-w-[55.25rem] max-h-[8.313rem] pr-[2.3rem]">
+   <div class=" w-full h-full max-w-[55.25rem] max-h-[8.313rem] md:pr-[2.3rem]">
     <BrowserHeader />
 
    </div>
 
-    <div class=" w-full max-h-[29.817rem] overflow-y-auto h-full pr-[1.78rem]  rounded-br-lg overflow-hidden  max-w-[57.5rem]  space-y-10">
+    <div class=" w-full max-h-[29.817rem] overflow-y-auto h-full md:pr-[1.78rem]  rounded-br-lg overflow-hidden  max-w-[57.5rem]  space-y-10">
        <div class="w-full bg-[#050608] max-w-[55.25rem] space-y-10 rounded-br-lg overflow-hidden">
          <div class=" w-full flex flex-col items-center space-y-8 py-10 px-14  rounded-br-lg overflow-hidden" id="first">
             <div class=" w-full flex items-start justify-between flex-wrap  md:max-w-[10.313rem] m-auto lg:max-w-full sm:max-w-full max-w-[10.313rem]">
@@ -65,11 +65,17 @@ export default {
     activeIndex:{
       type: [String, Number],
       default: 0,
+    },
+    activetype:{
+      type: [String, Number],
+      default: 1,
     }
   },
   data(){
     return {
       active: false,
+      timer:null,
+      type:1,
     }
   },
     components: {
@@ -78,26 +84,36 @@ export default {
     methods:{
       ScrollTo(id){
         document.getElementById(id).scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
-         this.active = false
-          let time =   setTimeout(() => {
-            this.active = true
-            clearTimeout(time)
-          }, 100);
+       
         
       }
     },
     watch:{
       activeIndex(){
-        if(this.activeIndex == 0){
+        if(this.activeIndex == 0 && this.type == 0){
           this.ScrollTo('first')
         }
-        if(this.activeIndex == 1){
+        if(this.activeIndex == 1 && this.type == 0){
           this.ScrollTo('second')
         }
-        if(this.activeIndex == 2){
+        if(this.activeIndex == 2 && this.type == 0) {
           this.ScrollTo('third')
         }
+      },
+      //deep:true for activetype
+      
+      activetype:{
+        handler(){
+          if(this.activetype == 0){
+            this.type = 0
+          }
+          if(this.activetype == 1){
+            this.type = 1
+          }
+        },
+        deep:true
       }
+
     },
     mounted(){
       const options = {
@@ -131,7 +147,7 @@ export default {
       observer.observe(document.querySelector('#third'))
       setTimeout(() => {
         this.active = true
-      }, 100);
+      }, 500);
 
 
     }

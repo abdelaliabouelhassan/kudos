@@ -13,7 +13,7 @@
         <!-- First Section -->
 
            <section class=" w-full max-w-[98rem] m-auto flex items-center md:flex-row flex-col md:justify-between pt-10">
-            <div class=" w-full max-w-[33.149rem] flex flex-col items-start space-y-6">
+            <div class=" md:w-full max-w-[33.149rem] flex flex-col items-start space-y-6">
                 <div>
                     <span class=" text-white font-extrabold font-montserrat text-[3.125rem] md:text-[4.375rem] italic leading-[3.938rem]">BUY ONE,</span><br>
                     <span class=" text-white font-extrabold font-montserrat text-[3.125rem] md:text-[4.375rem] italic leading-[3.938rem]"> GET ONE...</span> <br>
@@ -35,27 +35,27 @@
             <div class=" w-full max-w-[108.188rem] py-40  m-auto">
                  <div class=" w-full grid grid-cols-1 gap-y-4 md:gap-y-0 md:grid-cols-2 md:gap-x-0 ">
                     <div class="w-full col-spa">
-                        <ScrollContainer @scroll="scroll" :activeIndex="activeIndex"  />
+                        <ScrollContainer @scroll="scroll" :activeIndex="activeIndex" :activetype="type"  />
                     </div>
                     <div class=" w-full ">
                         <span class=" text-white font-black font-montserrat italic text-[1.75rem] md:text-[2rem]">HOW IT WORKS</span>
                         <div class=" flex  h-full w-full max-h-[33.817rem]">
                          <div class=" w-full px-10 pt-16 flex flex-col items-start space-y-10 max-h-[29.817rem] m-auto ">
-                            <div @click="setActive(0)" :class="{'px-20 py-5 w-full border-[0.188rem] border-[#FC9D0F] bg-black': activeIndex === 0,'px-4 py-2 bg-[#7B7D7F] rounded-lg cursor-pointer': activeIndex != 0}">
+                            <div @click="setActive(0)" :class="{'px-20 py-5 w-full border-[0.188rem] border-[#FC9D0F] bg-black': activeCard === 0,'px-4 py-2 bg-[#7B7D7F] rounded-lg cursor-pointer': activeCard != 0}">
                                 <span class=" font-bold text-white font-montserrat text-[1.375rem] md:text-[1.625rem] ">An experience created by you.</span>
-                                <div class=" text-white text-xs md:text-base font-montserrat font-normal pl-5" v-if="activeIndex === 0">
+                                <div class=" text-white text-xs md:text-base font-montserrat font-normal pl-5" v-if="activeCard === 0">
                                     Stores and rewards based on your choice.
                                 </div>
                             </div>
-                              <div @click="setActive(1)" :class="{'px-14 py-5 w-full border-[0.188rem] border-[#FC9D0F] bg-black': activeIndex === 1,'px-4 py-2 bg-[#7B7D7F] rounded-lg cursor-pointer': activeIndex != 1}">
+                              <div @click="setActive(1)" :class="{'px-14 py-5 w-full border-[0.188rem] border-[#FC9D0F] bg-black': activeCard === 1,'px-4 py-2 bg-[#7B7D7F] rounded-lg cursor-pointer': activeCard != 1}">
                                 <span class=" font-bold text-white font-montserrat  text-[1.375rem] md:text-[1.625rem] ">Don't waste time by waiting for the right time.</span>
-                                <div class=" text-white text-xs md:text-base font-montserrat font-normal pl-5" v-if="activeIndex === 1">
+                                <div class=" text-white text-xs md:text-base font-montserrat font-normal pl-5" v-if="activeCard === 1">
                                     No more saving products for later or waiting for price drops, If you love it, buy it!
                                 </div>
                             </div>
-                             <div @click="setActive(2)" :class="{'px-10 py-5 w-full border-[0.188rem] border-[#FC9D0F] bg-black': activeIndex === 2,'px-4 py-2 bg-[#7B7D7F] rounded-lg cursor-pointer': activeIndex != 2}">
+                             <div @click="setActive(2)" :class="{'px-10 py-5 w-full border-[0.188rem] border-[#FC9D0F] bg-black': activeCard === 2,'px-4 py-2 bg-[#7B7D7F] rounded-lg cursor-pointer': activeCard != 2}">
                                 <span class=" font-bold text-white font-montserrat  text-[1.375rem] md:text-[1.625rem] ">With Kudos, every purchase is a joyful experience.</span>
-                                <div class=" text-white text-xs md:text-base font-montserrat font-normal pl-5" v-if="activeIndex === 2">
+                                <div class=" text-white text-xs md:text-base font-montserrat font-normal pl-5" v-if="activeCard === 2">
                                     Shop smarter, shop with kudos!
                                 </div>
                             </div>
@@ -102,21 +102,27 @@ export default {
     data(){
         return{
             activeIndex:0,
+            activeCard:0,
+            type:1,
         }
     },
     methods:{
         scroll(e){
+             this.type = 1
             if(e == 'first'){
-                this.activeIndex = 0
+                 this.activeIndex = 0
             }else if(e == 'second'){
-                this.activeIndex = 1
+                 this.activeIndex = 1
             }
             else if(e == 'third'){
-                this.activeIndex = 2
+                 this.activeIndex = 2
             }
+            this.activeCard = this.activeIndex
+            
         },
         setActive(index) {
             this.activeIndex = index
+            this.type = 0
         }
     }
    
