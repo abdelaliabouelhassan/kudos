@@ -83,16 +83,12 @@ export default {
     },
     methods:{
       ScrollTo(id){
-      //  document.getElementById(id).scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
        const scrollContainer = document.getElementById("scrollContainer");
        const target = document.getElementById(id);
-       //stopPropagation 
        scrollContainer.scrollTo({
           top: target.offsetTop - scrollContainer.offsetTop,
           behavior: 'smooth'
         });
-
-        
       }
     },
     watch:{
